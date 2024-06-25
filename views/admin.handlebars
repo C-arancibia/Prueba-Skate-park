@@ -1,0 +1,36 @@
+{{!-- Administración --}}
+{{> header}}
+<div class="py-4">
+  <h2>Administración</h2>
+  <hr>
+  <table class="table w-50 m-auto">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Foto</th>
+        <th>Nombre</th>
+        <th>Años de experiencia</th>
+        <th>Especialidad</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each participants}}
+      <tr>
+        <th>{{id}}</th>
+        <td><img src="/images/{{foto}}" alt="Foto de {{nombre}}" width="50"></td>
+        <td>{{nombre}}</td>
+        <td>{{anos_experiencia}}</td>
+        <td>{{especialidad}}</td>
+        <td>
+          <form action="/admin/update" method="POST">
+            <input type="hidden" name="id" value="{{id}}">
+            <input type="checkbox" name="estado" {{#if estado}}checked{{/if}} onchange="this.form.submit()">
+          </form>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+{{> footer}}

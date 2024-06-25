@@ -1,0 +1,32 @@
+{{!-- Lista de participantes --}}
+{{> header}}
+<div class="py-4">
+  <h2>Lista de participantes</h2>
+  <hr>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Foto</th>
+        <th>Nombre</th>
+        <th>Años de experiencia</th>
+        <th>Especialidad</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each participants}}
+      <tr>
+        <th>{{id}}</th>
+        <td><img src="/images/{{foto}}" alt="Foto de {{nombre}}" width="50"></td>
+        <td>{{nombre}}</td>
+        <td>{{anos_experiencia}}</td>
+        <td>{{especialidad}}</td>
+        <td>{{#if estado}}Aprobado{{else}}En revisión{{/if}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <a href="/login">Iniciar Sesión</a> | <a href="/register">Registrarme</a>
+</div>
+{{> footer}}
